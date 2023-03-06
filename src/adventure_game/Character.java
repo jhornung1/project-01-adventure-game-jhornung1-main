@@ -21,7 +21,7 @@ abstract public class Character{
 
     private String name;
 
-    private ArrayList<Consumable> items;
+    public ArrayList<Consumable> items;
 
     // Character Conditions:
     private int turnsVulnerable; // number of turns Character is vulnerable

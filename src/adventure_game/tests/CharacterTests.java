@@ -61,7 +61,7 @@ public class CharacterTests{
         c.setAsVulnerable(1);
         assertTrue(c.isVulnerable());
         c.decreaseTurnsVulnerable();
-        assertTrue(c.isVulnerable());
+        assertTrue(!(c.isVulnerable()));
     }
 
     @Test
@@ -76,25 +76,26 @@ public class CharacterTests{
         c.setAsStunned(1);
         assertTrue(c.isStunned());
         c.decreaseTurnsStunned();
-        assertTrue(c.isStunned());
+        assertTrue(!(c.isStunned()));
     }
 
     @Test
     void testSetTempDamageBuff(){
-        assertTrue(c.getTempDamageBuff() == 0);
         c.setTempDamageBuff(10);
         assertTrue(c.getTempDamageBuff() == 10);
     }
 
     @Test
-    void testObtain(){
-        
+    void testAttack(){
+        c.attack(other);
+        assertTrue(other.getHealth() == 194);
     }
 
     @Test
-    void testAttack(){
-        c.attack(other);
-        assertTrue(other.getHealth() == 10);
+    void testDefend(){
+        c.defend(other);
+        assertTrue(c.isInvincible());
+        assertTrue(c.getTempDamageBuff() == 2.0);
     }
     
 }

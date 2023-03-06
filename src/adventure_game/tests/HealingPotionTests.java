@@ -1,24 +1,28 @@
 
 package adventure_game.tests;
-import adventure_game.Character;
-import adventure_game.Player;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
 
+import adventure_game.Player;
+import adventure_game.items.HealingPotion;
+
+import org.junit.jupiter.api.BeforeEach;
 public class HealingPotionTests {
 
+    private Player p;
     @BeforeEach
     void setup(){
-        // TO-DO 
-        // Implement this
+        p = new Player("Hero", 100, 9, 7);
+        p.obtain(new HealingPotion());
     }
 
     @Test
     void testHealingPotion(){
-        // TO-DO
-        // Implement this
+        p.modifyHealth(-20);
+        assertTrue(p.getHealth() == 80);
+        p.items.get(0).consume(p);
+        assertTrue(p.getHealth() == 96);
     }
 }
