@@ -52,7 +52,7 @@ Here is the documentation on [Writing JUnit Tests](https://junit.org/junit5/docs
 
 Also provided to help you get you started is the beginning of a test suite `CharacterTests` for the class `Character`.
 
-Open up `CharacterTests`.
+Open up `CharacterTests`
 
 You see that there is a `@BeforeEach` annotation above the `setup()` method. `setup()` will be run before each test.
 
@@ -95,7 +95,7 @@ Charging up mana increments the Player's mana by 1.
 
 Also included in the game are items. A `Consumable` interface is provided. It allows you to create subclasses that are consumable. Each `Consumable` must implement the `consume` method which manifests whatever effect the consumable object has. One example item is provided for you, the `HealingPotion`.
 
-Add atleast one additional `Consumable` item.
+Add at least one additional `Consumable` item.
 
 ## Documentation and Testing
 
@@ -175,3 +175,12 @@ Document any bonus features you implement in `README.md` in the root project dir
 # Acknowledgements
 
 Thank you to Ted Holmberg for inspiration, ideas, and mechanics which have ended up in this project.
+
+
+
+
+
+Planned (Gross Private) Investment: I^P
+    Gross Private Investment
+
+I = Planned Investment + Unplanned Changes in Inventory Levels

@@ -16,8 +16,9 @@ public class HealingPotion implements Consumable {
      * 
      * It then outputs how much the player is healed.
      * @param owner is the Character consuming the potion.
+     * @param other is the current target of the player (not used)
      */
-    public void consume(Character owner){
+    public void consume(Character owner, Character other){
         int hitPoints = calculateHealing();
         int hitPointsFromMax = owner.getMaxHealth() - owner.getHealth();
 

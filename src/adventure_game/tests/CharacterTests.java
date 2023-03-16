@@ -3,6 +3,7 @@ package adventure_game.tests;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestFactory;
 
 import adventure_game.Character;
 import adventure_game.Player;
@@ -92,10 +93,25 @@ public class CharacterTests{
     }
 
     @Test
-    void testDefend(){
+    void testDefend() {
         c.defend(other);
         assertTrue(c.isInvincible());
         assertTrue(c.getTempDamageBuff() == 2.0);
     }
+
+    @Test
+    void testCastSpell() {
+        c.castSpell(other);
+        assertTrue(c.getMana() == 6);
+        assertTrue(other.getHealth() == 100);
+    }
+
+    @Test
+    void testChargeMana() {
+        c.castSpell(other);
+        c.chargeMana();
+        assertTrue(c.getMana() == 7);
+    }
+
     
 }

@@ -17,7 +17,8 @@ public interface Consumable {
      * the Character consuming it.
      * 
      * @param owner the Character consuming this item
+     * @param other is the current target of the player
      */
-    public void consume(Character owner);
+    public void consume(Character owner, Character other);
 
 }

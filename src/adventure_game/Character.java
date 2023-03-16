@@ -122,7 +122,7 @@ abstract public class Character{
     /**
      * Check if this Character is alive
      * @return true is this Character is alive, if not
-     * @return false
+     * it returns false
      */
 
     public boolean isAlive(){
@@ -347,7 +347,7 @@ abstract public class Character{
         }
         System.out.print("  Enter your choice: ");
         int choice = Game.in.nextInt();
-        items.get(choice-1).consume(owner);
+        items.get(choice-1).consume(owner, other);
         items.remove(choice-1);
     }
 
@@ -358,5 +358,28 @@ abstract public class Character{
      */
     public boolean hasItems(){
         return !items.isEmpty();
+    }
+
+    /**
+     * Cuts the opponents health in half and 
+     * reduces the players mana by 3
+     * 
+     * @param other is the opponent
+     */
+
+    public void castSpell(Character other) {
+        int damageMod = other.getHealth() / 2 * -1;
+        other.modifyHealth(damageMod);
+        this.mana -= 3;
+        System.out.printf("\nYou cut %s's health in half, and %s now has $d health left.\n", other.getName(), other.getName(), other.getHealth());
+    }
+
+    /**
+     *  Increments the player's mana and prints out current mana
+     */
+
+    public void chargeMana() {
+        this.mana += 1;
+        System.out.printf("\nYou currently have %d mana\n", getMana());
     }
 }

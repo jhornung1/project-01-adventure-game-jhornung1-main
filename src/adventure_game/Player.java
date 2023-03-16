@@ -28,9 +28,11 @@ public class Player extends Character{
      * If they aren't stunned, it prints out the health stats and name of the
      * player character, and the health stats of the target. It then asks if the player
      * wants to attack or defend. It also checks if the player has any items, and if the
-     * player has items, asks if they want to use said items.
+     * player has items, asks if they want to use said items. It also asks if the player wants
+     * to cast a spell or to charge up mana.
      * 
-     * The calls methods, attack(), defend(), or useItems() depending on what the player chose.
+     * The calls methods, attack(), defend(), useItems(), chargeMana(),
+     * or castSpell() depending on what the player chose.
      * 
      * @param other the target of the player character
      */
@@ -49,6 +51,8 @@ public class Player extends Character{
         System.out.printf("  2: Defend?\n");
         if(this.hasItems())
             System.out.printf("  3: Use an item?\n");
+        System.out.printf("  4: Cast Spell?\n");
+        System.out.printf("  5: Charge Mana\n");
         System.out.printf("Enter your choice: ");
 
         int choice = Game.in.nextInt();
@@ -65,6 +69,12 @@ public class Player extends Character{
                 } else {
                     System.out.println("You dig through your bag but find no items. You lose a turn!!");
                 }
+                break;
+            case 4:
+                this.castSpell(other);
+                break;
+            case 5:
+                this.chargeMana();
                 break;
         }
     }
