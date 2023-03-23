@@ -21,6 +21,9 @@ abstract public class Character{
 
     private String name;
 
+    /**
+     * The list of consumables the player has
+     */
     public ArrayList<Consumable> items;
 
     // Character Conditions:
@@ -38,7 +41,6 @@ abstract public class Character{
      * @param mana is the starting mana of the character
      * @param damage is the damage the character can do
      */
-
     public Character(String name, int health, int mana, int damage){
         this.name = name;
         this.maxHealth = health;
@@ -54,7 +56,6 @@ abstract public class Character{
      * toString() @return all of the attributes in the Character
      * in String format
      */
-
     @Override
     public String toString(){
         String output;
@@ -78,7 +79,6 @@ abstract public class Character{
      * Get the current health of this Character
      * @return the current health of this Character
      */
-
     public int getHealth(){
         return this.health;
     }
@@ -87,7 +87,6 @@ abstract public class Character{
      * Get the max health of this Character
      * @return the max health of this Character
      */
-
     public int getMaxHealth(){
         return this.maxHealth;
     }
@@ -96,7 +95,6 @@ abstract public class Character{
      * Get the max mana of this Character
      * @return the max mana of this Character
      */
-
     public int getMaxMana(){
         return this.maxMana;
     }
@@ -105,7 +103,6 @@ abstract public class Character{
      * Get the current mana of this Character
      * @return the current mana of this Character
      */
-
     public int getMana(){
         return this.mana;
     }
@@ -114,7 +111,6 @@ abstract public class Character{
      * Get the base damage of this Character
      * @return the base damage of this Character
      */
-
     public int getBaseDamage(){
         return this.baseDamage;
     }
@@ -124,7 +120,6 @@ abstract public class Character{
      * @return true is this Character is alive, if not
      * it returns false
      */
-
     public boolean isAlive(){
         return this.health > 0;
     }
@@ -134,7 +129,6 @@ abstract public class Character{
      * 
      * @return the current damage buff of this Character
      */
-    
     public double getTempDamageBuff(){
         return this.tempDamageBuff;
     }
@@ -156,7 +150,6 @@ abstract public class Character{
      * 
      * @param other is the Character recieving the attack
      */
-
     public void attack(Character other){
         if(other.isInvincible()){
             System.out.printf("%S is unable to attack %S!\n", 
@@ -192,7 +185,6 @@ abstract public class Character{
      * @param other is the Character attacking the main Character (isn't currently
      * used in the code)
      */
-
     public void defend(Character other){
         double chance = Game.rand.nextDouble();
         if(chance <=0.75){
@@ -212,7 +204,6 @@ abstract public class Character{
      * 
      * @param modifier the amount of health that will be modified
      */
-
     public void modifyHealth(int modifier) {
         this.health += modifier;
         if(this.health < 0){
@@ -223,13 +214,13 @@ abstract public class Character{
         }
     }
 
+    /* CONDITIONS */
+
     /**
      * Sets the character to be vulnerable for the number of turns
      * 
      * @param numTurns the number of turns the Character should be set as vulnerable for
      */
-
-    /* CONDITIONS */
     public void setAsVulnerable(int numTurns){
         this.turnsVulnerable = numTurns;
     }
@@ -239,7 +230,6 @@ abstract public class Character{
      * 
      * @return false if not vulnerable, true if vulnerable
      */
-
     public boolean isVulnerable(){
         return this.turnsVulnerable > 0;
     }
@@ -247,7 +237,6 @@ abstract public class Character{
     /**
      * Removes one turn of vulnerability
      */
-
     public void decreaseTurnsVulnerable(){
         this.turnsVulnerable--;
     }
@@ -257,7 +246,6 @@ abstract public class Character{
      * 
      * @param numTurns the number of turns the Character should be set as invincible for
      */
-
     public void setAsInvincible(int numTurns){
         this.turnsInvincible = numTurns;
     }
@@ -267,7 +255,6 @@ abstract public class Character{
      * 
      * @return false if not invincible, true if invincible
      */
-
     public boolean isInvincible(){
         return this.turnsInvincible > 0;
     }
@@ -275,7 +262,6 @@ abstract public class Character{
     /**
      * Removes one turn of invincibility
      */
-
     public void decreaseTurnsInvincible(){
         this.turnsInvincible--;
     }
@@ -285,7 +271,6 @@ abstract public class Character{
      * 
      * @param numTurns the number of turns the Character should be set as stunned for
      */
-
     public void setAsStunned(int numTurns){
         this.turnsStunned = numTurns;
     }
@@ -295,7 +280,6 @@ abstract public class Character{
      * 
      * @return false if not stunned, true if stunned
      */
-
     public boolean isStunned(){
         return this.turnsStunned > 0;
     }
@@ -303,7 +287,6 @@ abstract public class Character{
     /**
      * Removes one turn of stun
      */
-
     public void decreaseTurnsStunned(){
         this.turnsStunned--;
     }
@@ -327,7 +310,6 @@ abstract public class Character{
      * 
      * @param item the item added to the Character
      */
-
     public void obtain(Consumable item){
         items.add(item);
     }
@@ -337,7 +319,6 @@ abstract public class Character{
      * @param owner the owner of the item being used
      * @param other the other character the item effects
      */
-
     public void useItem(Character owner, Character other){
         int i = 1;
         System.out.printf("  Do you want to use:\n");
@@ -360,13 +341,13 @@ abstract public class Character{
         return !items.isEmpty();
     }
 
+
     /**
      * Cuts the opponents health in half and 
      * reduces the players mana by 3
      * 
      * @param other is the opponent
      */
-
     public void castSpell(Character other) {
         int damageMod = other.getHealth() / 2 * -1;
         other.modifyHealth(damageMod);
@@ -377,7 +358,6 @@ abstract public class Character{
     /**
      *  Increments the player's mana and prints out current mana
      */
-
     public void chargeMana() {
         this.mana += 1;
         System.out.printf("\nYou currently have %d mana\n", getMana());

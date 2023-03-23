@@ -11,3 +11,5 @@ To complete this lab, follow the instructions in [project-01.md](project-01.md) 
 # Your Custom Features
 
 Document your custom features here:
+
+The Spear item has a fifty-fifty chance of instantly killing the enemy, or hurting the player instead.

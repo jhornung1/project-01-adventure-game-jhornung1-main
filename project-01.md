@@ -32,7 +32,7 @@ Compile your javadoc comments into a javadoc website in a `docs` directory in th
 
 To do so, on the terminal, located in your project's root directory, issue the following command:
 
-`C:\Users\jacob\.vscode\extensions\redhat.java-1.15.0-win32-x64\jre\17.0.6-win32-x86_64\bin\javadoc -link https://docs.oracle.com/en/java/javase/19/docs/api -sourcepath ./src/ adventure_game adventure_game.items -d ./docs`
+`C:\Users\jacob\.vscode\extensions\redhat.java-1.16.0-win32-x64\jre\17.0.6-win32-x86_64\bin\javadoc -link https://docs.oracle.com/en/java/javase/19/docs/api -sourcepath ./src/ adventure_game adventure_game.items -d ./docs`
 
 ## Unit Tests
 
@@ -175,12 +175,3 @@ Document any bonus features you implement in `README.md` in the root project dir
 # Acknowledgements
 
 Thank you to Ted Holmberg for inspiration, ideas, and mechanics which have ended up in this project.
-
-
-
-
-
-Planned (Gross Private) Investment: I^P
-    Gross Private Investment
-
-I = Planned Investment + Unplanned Changes in Inventory Levels

@@ -1,5 +1,7 @@
 package adventure_game;
 
+import adventure_game.items.*;
+
 /**
  * The main class for the creation and the taking of the turn
  * for the player Character
@@ -77,5 +79,21 @@ public class Player extends Character{
                 this.chargeMana();
                 break;
         }
+    }
+
+    /**
+     * Checks every item the player has to see if one is a portkey
+     * 
+     * @return false if player does not have the portkey
+     */
+    public boolean hasPortkey() {
+        for(Consumable item : items) {
+            if(item.getClass().getSimpleName().equals("Portkey")) {
+                return true;
+            } else {
+                continue;
+            }
+        }
+        return false;
     }
 }

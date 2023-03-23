@@ -8,6 +8,7 @@ import org.junit.jupiter.api.TestFactory;
 import adventure_game.Character;
 import adventure_game.Player;
 import adventure_game.NPC;
+import adventure_game.items.*;
 
 import org.junit.jupiter.api.BeforeEach;
 
@@ -112,6 +113,5 @@ public class CharacterTests{
         c.chargeMana();
         assertTrue(c.getMana() == 7);
     }
-
     
 }
